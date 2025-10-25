@@ -7,7 +7,7 @@ export class CoursesController {
     constructor(private readonly courseService:CoursesService){}
 
     @Get('all')
-    getAllCourses():string[]{
+    getAllCourses(){
         return this.courseService.getCourses();
     }
     @Post('create')

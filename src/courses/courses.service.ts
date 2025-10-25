@@ -5,8 +5,9 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient()
 @Injectable()
 export class CoursesService {
-    getCourses():string[]{
-        return ['Course 1','Course 2','Course 3'];
+    getCourses(){
+        const allCourses = prisma.post.findMany()
+        return allCourses
     }
     async addCourse(data:{course_name:string,course_code:string,course_description?:string}){
         const {course_name,course_code,course_description} = data;
